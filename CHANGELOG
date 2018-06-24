@@ -2,10 +2,20 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.3
+______
+
+* bugfixes in READMEs, TODOs added
+
+v0.0.2
+______
+
+* bugfixes
+
 v0.0.1
 _______
 
-basic functionality, proof of concept study
+* basic functionality, proof of concept study
 
 
 

@@ -23,8 +23,6 @@ Clone the lara-django-suite core:
   django-admin startapp --template=https://github.com/LARAsuite/lara-django-app-template/archive/master.zip --extension=rst-tpl  myapp 
   
   # this is not working yet : --authors=ben --creation_date=$(date -I)
-  
-rename *.rst-tpl to *.rst (old .rst files can be deleted)
 
 1. Add "lara-django-devices" to your INSTALLED_APPS setting like this::
     
@@ -97,6 +95,7 @@ ________________________
 To generate the documentation, please change directory to app and run:
 
     sphinx-apidoc -o docs .
+    cd docs
     make html
     
 
