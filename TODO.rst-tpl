@@ -1,5 +1,5 @@
 
-lara-django-app-template todo list
+{{ app_name }} todo list
 ===================================
 
 .. todo::
