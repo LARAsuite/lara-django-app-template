@@ -1,7 +1,7 @@
-lara-django-app-template
+{{ app_name }}
 =========================
 
-A template for a LARA python-django app, including templates for setup, documentation and installer. 
+{{ app_name }} - A  LARA python-django app. 
 
 
 Quick start
@@ -18,26 +18,19 @@ Clone the lara-django-suite core:
    cd lara-django
    python3 install-lara-django.py
    
-1. generate app
 
-  django-admin startapp --template=https://github.com/LARAsuite/lara-django-app-template/archive/master.zip --extension=rst-tpl  myapp 
-  
-  # this is not working yet : --authors=ben --creation_date=$(date -I)
-  
-rename *.rst-tpl to *.rst (old .rst files can be deleted)
-
-1. Add "lara-django-devices" to your INSTALLED_APPS setting like this::
+1. Add "{{ app_name }}" to your INSTALLED_APPS setting like this::
     
     INSTALLED_APPS = [
         ...
-        'lara-django-devices',
+        '{{ app_name }}',
     ]
 
 1. Include the lara-django-app URLconf in your project urls.py like this::
 
-    path('app/', include('lara-django-app.urls')),
+    path('app/', include('{{ app_name }}.urls')),
 
-1. Run `python3 manage.py migrate` to create the lara-django-devices models.
+1. Run `python3 manage.py migrate` to create the {{ app_name }} models.
 
 1. In case you like to test the app, please load the demo data:
 
@@ -64,7 +57,6 @@ to use user defined fixtures, please set:
         export DJANGO_FIXTURE_PATH='path/to/user/fixtures'
 
 
-
 Installation of required packages
 ---------------------------------
 ::
@@ -87,10 +79,9 @@ _________________________
 
 from the directory where the main lara project is located, type
 
-    ./manage.py test app
+    ./manage.py test {{ app_name }}
 
     
-
 Generating documentation
 ________________________
 

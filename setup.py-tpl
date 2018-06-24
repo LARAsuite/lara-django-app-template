@@ -2,12 +2,14 @@
 
 :PROJECT: LARA
 
-*{{ app_name }} admin *
+*{{ app_name }} setup *
 
-:details: {{ app_name }} admin module admin backend configuration.
-         - 
+:details: {{ app_name }} setup file for installation.
+         - For installation, run:
+           run pip3 install .
+           or  python3 setup.py install
 
-:file:    admin.py
+:file:    setup.py
 :authors: {{ authors }}
 
 :date: (creation)          {{ creation_date }}
@@ -25,7 +27,13 @@ import sys
 from setuptools import setup, find_packages
 #~ from distutils.sysconfig import get_python_lib
 
-pkg_name = {{ app_name }}
+pkg_name = '{{ app_name }}'
+
+def read(fname):
+    try:
+        return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    except IOError:
+        return ''
 
 install_requires = [] 
 data_files = []
@@ -39,7 +47,7 @@ setup(name=pkg_name,
     keywords='lab automation, experiments, database, evaluation, visualisation, SiLA2, robots',
     url='https://github.com/LARAsuite/lara-django-app-template',
     license='GPL',
-    packages=find_packages('{{ app_name }}'), #['codegenerator'],
+    packages=find_packages(), #['{{ app_name }}'],
     #~ package_dir={'{{ app_name }}':'{{ app_name }}'},
     install_requires = install_requires,
     test_suite='',

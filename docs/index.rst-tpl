@@ -1,4 +1,4 @@
-.. lara-django-app-template documentation master file, created by
+.. {{ app_name }} documentation master file, created by
    sphinx-quickstart on Sat Mar 24 15:13:29 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -6,7 +6,7 @@
 Welcome to lara-django-app-template's documentation!
 ====================================================
 
-*lara-django-app-template* can be used to quickly extend the LARAsuite.
+*{{ app_name }}* can be used to quickly extend the LARAsuite.
 
 Contents:
 
