@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to lara-django-app-template's documentation!
+Welcome to *{{ app_name }}*'s documentation!
 ====================================================
 
 *{{ app_name }}* can be used to quickly extend the LARAsuite.
