@@ -2,6 +2,14 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.4
+_______
+
+* directories added: fixtures, static
+* setup_app.sh script added for better processing
+* READMEs fixed
+
+
 v0.0.3
 ______
 

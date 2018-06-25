@@ -15,14 +15,21 @@ Clone the lara-django-suite core:
 
 1. Install lara-django
    
-   cd lara-django
-   python3 install-lara-django.py
+	cd lara-django
+	python3 install-lara-django.py
    
 1. generate app
 
-  django-admin startapp --template=https://github.com/LARAsuite/lara-django-app-template/archive/master.zip --extension=rst-tpl  myapp 
+	django-admin startapp --template=https://github.com/LARAsuite/lara-django-app-template/archive/master.zip --extension=rst-tpl  myapp 
   
   # this is not working yet : --authors=ben --creation_date=$(date -I)
+  
+finally fix some things, django-admin has not done
+  
+	cd [your_new_app_dir]
+	setup_app.sh [your_new_app_name]  # this will rename and delete some files and directories 
+	
+If required, copy the files/directories of the new app into a new git repository.
 
 1. Add "lara-django-devices" to your INSTALLED_APPS setting like this::
     
