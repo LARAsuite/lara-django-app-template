@@ -3,6 +3,7 @@
 
 if [ "$#" -ne 1 ]; then
     echo "Please specify new app name !"
+    exit
 fi
 
 # renaming subdirectories and the app directories
@@ -20,6 +21,7 @@ rm CHANGELOG
 # renaming the templates to real files
 mv docs/index.rst-tpl docs/index.rst
 mv CHANGELOG.rst-tpl CHANGELOG
+mv VERSION.rst-tpl VERSION
 mv README.rst-tpl README.rst
 mv TODO.rst-tpl TODO.rst
 

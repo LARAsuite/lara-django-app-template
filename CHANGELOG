@@ -2,6 +2,12 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.5
+______
+
+* git repository handling tools (for proper commit chain)
+* small bugfixes
+
 v0.0.4
 _______
 
