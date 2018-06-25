@@ -11,28 +11,27 @@ Clone the lara-django-suite core:
 
 - lara-django
 - lara-people
+- lara-metainfo
 - lara-data
+- lara-devices
+- lara-substances
+- lara-processes
 
 Installation
 -------------
 
 1. Install lara-django
    
-   cd lara-django
-   python3 install-lara-django.py
+	cd lara-django
+	python3 install-lara-django.py
    
 1. Install the app
 
-mv lara_app {{ app_name }}
-mv lara_app_demo {{ app_name }}_demo
-
 copy content of {{ app_name }} to app repository (not including {{ app_name }} folder)
 
-cd app repository
+	cd app repository
 
-pip3 install .
-
-rename *.rst-tpl to *.rst (old .rst files can be deleted)
+	pip3 install .
    
 
 1. Add "{{ app_name }}" to your INSTALLED_APPS setting like this::
