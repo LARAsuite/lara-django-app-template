@@ -49,7 +49,7 @@ git commit -am \"$repo_version\"
 
 echo git tag  $repo_version -m "$repo_version"
 echo git tag  $repo_version -m \"$repo_version\"
-git tag  $repo_version -m $repo_version
+git tag  $repo_version -m \"$repo_version\"
 
 # pushing github_master (=current HEAD ) to master (master) on github
 # git push --tags destination source_branch:target_branch
