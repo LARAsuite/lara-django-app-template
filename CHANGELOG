@@ -2,6 +2,23 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.8
+______
+
+* minor bug fixes 
+
+
+v0.0.7
+______
+
+* small bugfix in release scripts 
+
+
+v0.0.6
+______
+
+* improved git release scripts 
+
 v0.0.5
 ______
 

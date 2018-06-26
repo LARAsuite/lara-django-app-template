@@ -4,19 +4,9 @@ lara-django-app-template
 A template for a LARA python-django app, including templates for setup, documentation and installer. 
 
 
-Quick start
------------ 
-
-Clone the lara-django-suite core:
-
-- lara-django
-- lara-people
-- lara-data
-
 1. Install lara-django
    
-	cd lara-django
-	python3 install-lara-django.py
+	see Installation section in lara-django [https://github.com/LARAsuite/lara-django]
    
 1. generate app
 
