@@ -3,15 +3,18 @@
 
 if [ "$#" -ne 1 ]; then
     echo "Please specify new app name !"
+    echo "setup_app.sh [my_app_name]"
     exit
 fi
 
-# renaming subdirectories and the app directories
-mv lara_app/templates/lara_app lara_app/templates/$1
-mv lara_app/static/lara_app lara_app/static/$1
+app_name = $1
 
-mv lara_app $1
-mv lara_app_demo $1_demo
+# renaming subdirectories and the app directories
+mv lara_app/templates/lara_app lara_app/templates/$app_name
+mv lara_app/static/lara_app lara_app/static/$app_name
+
+mv lara_app $app_name
+mv lara_app_demo $app_name_demo
 
 # removing stuff from the template
 rm README.rst
@@ -25,3 +28,9 @@ mv VERSION.rst-tpl VERSION
 mv README.rst-tpl README.rst
 mv TODO.rst-tpl TODO.rst
 
+# futher instructions in case of using a cloned repo
+echo In case you already have a repository where you generated the app in, one needs to move everything one dir level up:
+echo mv ../$app_name ../$app_name_old
+echo mv {.,}* ..
+echo cd ..
+echo rmdir $app_name_old
