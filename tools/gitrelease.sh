@@ -10,11 +10,8 @@ if [ "$#" -ne 2 ]; then
     exit
 fi
 
-repo_release = $1
-repo_version = $2
-
-echo release : $repo_release
-echo version : $repo_version
+repo_release=$1
+repo_version=$2
 
 # checking before committing:
 
@@ -24,6 +21,9 @@ vim VERSION
 vim CHANGELOG
 
 # check, if github remote exists 
+echo release : $repo_release
+echo version : $repo_version
+
 git remote show
 
 read -p "Continue committing ... ? " -n 1 -r

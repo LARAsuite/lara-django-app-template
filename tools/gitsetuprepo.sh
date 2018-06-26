@@ -10,7 +10,7 @@ repo_release=v0.1_release
 # renaming origin to github
 git remote rename origin github 
 
-# doing some cheking before commit
+# doing some checking before commit
 git log
 git status
 
@@ -19,6 +19,9 @@ vim CHANGELOG
 vim README.rst
 
 git add -i
+
+echo release : $repo_release
+echo version : $repo_version
 
 read -p "Continue committing to master ... ? " -n 1 -r
 
