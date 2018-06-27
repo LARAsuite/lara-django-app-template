@@ -14,7 +14,7 @@ mv lara_app/templates/lara_app lara_app/templates/$app_name
 mv lara_app/static/lara_app lara_app/static/$app_name
 
 mv lara_app $app_name
-mv lara_app_demo $app_name_demo
+mv lara_app_demo $app_name'_demo'
 
 # removing stuff from the template
 rm README.rst
@@ -30,7 +30,7 @@ mv TODO.rst-tpl TODO.rst
 
 # futher instructions in case of using a cloned repo
 echo In case you already have a repository where you generated the app in, one needs to move everything one dir level up:
-echo mv ../$app_name ../$app_name_old
-echo mv {.,}* ..
+echo mv ../$app_name ../$app_name'_old'
+echo 'mv {.,}* ..'
 echo cd ..
-echo rmdir $app_name_old
+echo rmdir $app_name'_old'

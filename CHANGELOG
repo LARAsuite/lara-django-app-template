@@ -2,6 +2,11 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.10
+_______
+
+* renaming bug in setup_app.sh
+
 v0.0.9
 ______
 
