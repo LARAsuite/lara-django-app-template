@@ -7,7 +7,7 @@ if [ "$#" -ne 1 ]; then
     exit
 fi
 
-app_name = $1
+app_name=$1
 
 # renaming subdirectories and the app directories
 mv lara_app/templates/lara_app lara_app/templates/$app_name
