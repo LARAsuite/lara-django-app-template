@@ -2,6 +2,13 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.11
+_______
+
+* django v2.1 support updated
+* gitLab support added in tools
+
+
 v0.0.10
 _______
 
