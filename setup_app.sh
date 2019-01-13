@@ -23,6 +23,7 @@ rm CHANGELOG
 
 # renaming the templates to real files
 mv docs/index.rst-tpl docs/index.rst
+mv tools/gitsetuprepo.sh-tpl tools/gitsetuprepo.sh
 mv CHANGELOG.rst-tpl CHANGELOG
 mv VERSION.rst-tpl VERSION
 mv README.rst-tpl README.rst

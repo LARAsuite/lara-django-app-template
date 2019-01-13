@@ -6,19 +6,18 @@ A template for a LARA python-django app, including templates for setup, document
 
 1. Install lara-django
    
-	see Installation section in lara-django [https://github.com/LARAsuite/lara-django]
+    see Installation section in lara-django [https://github.com/LARAsuite/lara-django]
    
 1. generate app
 
-	django-admin startapp --template=https://github.com/LARAsuite/lara-django-app-template/archive/master.zip --extension=rst-tpl  myapp 
-  
-  # this is not working yet : --authors=ben --creation_date=$(date -I)
+    django-admin startapp --template=https://github.com/LARAsuite/lara-django-app-template/archive/master.zip --extension=rst-tpl  myapp
+    # this is not working yet : --authors=ben --creation_date=$(date -I)
   
 finally fix some things, django-admin has not done
   
-	cd [your_new_app_dir]
-	setup_app.sh [your_new_app_name]  # this will rename and delete some files and directories 
-	
+    cd [your_new_app_dir]
+    setup_app.sh [your_new_app_name]  # this will rename and delete some files and directories 
+
 If required, copy the files/directories of the new app into a new git repository.
 
 1. Add "lara-django-devices" to your INSTALLED_APPS setting like this::
@@ -44,26 +43,26 @@ Environment variables
 
 for development, please set
 ::
-      export DJANGO_SETTINGS_MODULE=lara.settings.devel
+    export DJANGO_SETTINGS_MODULE=lara.settings.devel
 
 for production, please set
 ::
-       export DJANGO_SETTINGS_MODULE=lara.settings.production
+    export DJANGO_SETTINGS_MODULE=lara.settings.production
     
 if your media does not reside in the default media folder, please set environment variable to
 ::
-        export DJANGO_MEDIA_PATH='path/to/my/media'
+    export DJANGO_MEDIA_PATH='path/to/my/media'
 
 to use user defined fixtures, please set:
 ::
-        export DJANGO_FIXTURE_PATH='path/to/user/fixtures'
+    export DJANGO_FIXTURE_PATH='path/to/user/fixtures'
 
 
 
 Installation of required packages
 ---------------------------------
 ::
-        pip3 install --user requirements/devel.py
+    pip3 install --user requirements/devel.py
 
 
 Testing all applications

@@ -4,7 +4,7 @@
 
 if [ "$#" -ne 2 ]; then
     echo "Please specify release and version !"
-    echo "gitrelease.sh v0.1_release v0.0.3"
+    echo "gitbugfixrelease.sh v0.1_release v0.0.3"
     exit
 fi
 
@@ -21,14 +21,16 @@ vim CHANGELOG
 
 git add -i
 
-echo "Please make sure, that you are working on $repo_release branch and that all bugs are fixed ;)"
-read -p "Continue committing ... ? " -n 1 -r
+git status
 
-#git checkout $repo_release # go into release
-#git merge master
-#vim VERSION
-#vim CHANGELOG
-#git add -i
+echo "Please make sure, that you are working on $repo_release branch and that all bugs are fixed ;)"
+read -p "Moving to $repo_release branch and continue committing ... ? " -n 1 -r
+
+git checkout $repo_release # go into release
+git merge master
+vim VERSION
+vim CHANGELOG
+git add -i
 
 git commit -a
 
@@ -55,6 +57,8 @@ read -p "Continue committing ... ? " -n 1 -r
 #git merge github_master
 
 # also pushing everything to release
+git push --tags gitlab HEAD:$repo_release
+
 git push --tags github HEAD:$repo_release
 # ?? git push github $repo_release
 
@@ -63,3 +67,6 @@ read -p "Continue committing ... ? " -n 1 -r
 # merging release back into master
 git checkout master
 #git merge $repo_release
+
+git branch
+

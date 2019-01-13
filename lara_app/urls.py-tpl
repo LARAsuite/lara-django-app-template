@@ -7,7 +7,7 @@
 :details: {{ app_name }} urls module.
          - add app specific urls here
 
-:file:    views.py
+:file:    urls.py
 :authors: {{ authors }}
 
 :date: (creation)          {{ creation_date }}
