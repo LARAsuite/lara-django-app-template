@@ -2,6 +2,12 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.12
+_______
+
+* setup.py, urls.py-tpl, requirements adjusted
+
+
 v0.0.11
 _______
 
