@@ -37,6 +37,7 @@ def read(fname):
 
 install_requires = [] 
 data_files = []
+package_data = {}  #{pkg_name: ['{{ app_name }}/templates/*.html', '{{ app_name }}/static/css/*.css',  ]}
     
 setup(name=pkg_name,
     version=__version__,
@@ -44,8 +45,8 @@ setup(name=pkg_name,
     long_description=read('README.rst'),
     author='{{ authors }}',
     author_email='{{ authors }}',
-    keywords='lab automation, experiments, database, evaluation, visualisation, SiLA2, robots',
-    url='https://github.com/LARAsuite/lara-django-app-template',
+    keywords='lab automation, projects, experiments, database, evaluation, visualisation, SiLA2, robots',
+    url='https://github.com/LARAsuite/{{ app_name }}',
     license='GPL',
     packages=find_packages(), #['{{ app_name }}'],
     #~ package_dir={'{{ app_name }}':'{{ app_name }}'},
@@ -55,12 +56,13 @@ setup(name=pkg_name,
                    'Environment :: commandline',
                    'Framework :: gRPC',
                    'Intended Audience :: Developers',
-                   'License :: OSI Approved :: GPL',
+                   'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
                    'Operating System :: OS Independent',
                    'Programming Language :: Python',
                    'Programming Language :: Python :: 3.4',
                    'Programming Language :: Python :: 3.5',
                    'Topic :: Utilities'],
     include_package_data=True,
+    #~ package_data = package_data,
     data_files=data_files,
 )

@@ -38,7 +38,7 @@ from django.views.generic import TemplateView
 app_name = 'lara_app_demo' # !! this sets the apps namespace to be used in the template
 
 urlpatterns = [
-    path('', TemplateView() )
+    path('', TemplateView() ),
     path('admin/', admin.site.urls),
     path('lademo/', include('lara_app.urls')),
 ]
