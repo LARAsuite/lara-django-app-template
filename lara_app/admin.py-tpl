@@ -17,12 +17,14 @@
 .. todo:: - 
 ________________________________________________________________________
 """
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 from django.contrib import admin
 
-from .models import ItemCategory, ForumContribution
+from .models import ExtraDataType, ExtraData,ItemCategory, ForumContribution
 
 admin.site.register(ItemCategory)
 admin.site.register(ForumContribution)
 
+admin.site.register(ExtraDataType)
+admin.site.register(ExtraData)

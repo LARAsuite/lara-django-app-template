@@ -17,12 +17,49 @@
 .. todo:: - 
 ________________________________________________________________________
 """
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 from django.db import models
 
+import uuid
+
 # modify your {{ app_name }} models here - these are just examples:
 
+class ExtraDataType(models.Model):
+    """EntityExtendedDataType: 
+       e.g. email_home, email_lab, telephone_number_home1, company_x_customer_number, 
+    """
+    extra_data_type_id =  models.AutoField(primary_key=True)
+    data_type = models.TextField(unique=True, null=True, help_text="name of extra data type")
+    description = models.TextField(blank=True, null=True, help_text="description of extra data type")
+    
+    def __str__(self):
+        return self.data_type or ''
+        
+    def __repr__(self):
+        return self.data_type or u''
+
+class ExtraData(models.Model):
+    """This class can be used to extend the Entity data, by extra information, 
+       e.g. more telephone numbers, customer numbers, ... """
+    extra_data_id =  models.AutoField(primary_key=True)
+    data_type = models.ForeignKey(ExtraDataType,  default=1, related_name="extra_datas",
+                                  on_delete=models.CASCADE, null=True, blank=True)
+    extra_text = models.TextField(blank=True, null=True, help_text="generic text field")  
+    extra_bin = models.BinaryField(blank=True, null=True, help_text="generic binary field")
+    extra_file = models.FileField(upload_to='lara_people/', blank=True, null=True, help_text="rel. path/filename")
+    URL = models.URLField(blank=True, help_text="Universal Resource Locator - URL")
+    description = models.TextField(blank=True, null=True, help_text="description of extra data")
+
+    def __str__(self):
+        return "{} ({})".format(self.data_type.data_type, self.description) or '' 
+
+    def __repr__(self):
+        return "{} ({})".format(self.data_type.data_type, self.description) or u''
+
+    class Meta:
+        verbose_name_plural = 'ExtraData'
+        
 class ItemCategory(models.Model):
     """ Forum item category, e.g. technical note, comment,  
     """
@@ -50,8 +87,65 @@ class ForumContribution(models.Model):
         return self.contrib_caption or u''
         
     def __repr__(self):
-        return self.contrib_caption or u''
+        return self.contrib_caption or u''    
 
     class Meta:
         verbose_name = 'ForumContribution'
         verbose_name_plural = 'ForumContributions'
+    
+class AllModels(models.Model):
+    """ summary  """
+    _id = models.AutoField(primary_key=True)
+    slug = models.SlugField(max_length=255, unique=True)
+    
+    bool_field = models.BooleanField(default=False)
+    text_field = models.TextField(blank=True, null=True, help_text="description of extra data type")
+    char_field = models.CharField(max_length=16, blank=True, help_text="multi-letter code, like US-MA, DE-TH ,  ...")
+    int_field = models.IntegerField(default=0, help_text="time zone offest from UTC, e.g. 5, -3 ")
+    # PositiveIntegerField
+    float_field = models.FloatField(blank=True, null=True, help_text="cont. height incl. lid")
+    decimal_field = models.DecimalField(max_digits=9, decimal_places=2,blank=True, null=True, help_text="room area in square meters") # more accurate than float field
+    binary_field = models.BinaryField(blank=True, null=True, help_text="generic binary field")
+    
+    uuid_field = models.UUIDField(default=uuid.uuid4)
+    
+    one2one_field = models.OneToOneField(User, on_delete=models.CASCADE,
+                                help_text="back-reference to the Django user")
+    many2one_field = models.ForeignKey(ExtraData, default=1, related_name="extra_datas",
+                                             on_delete=models.CASCADE, null=True, blank=True)
+    many2many_field =  models.ManyToManyField(ExtraData, related_name="extra_data_rooms", blank=True, 
+                                         help_text="extra information to this room, like sockets, lights, gas, furniture, infrastructure,... ")                                         
+    #GenericIPAddressField                                     
+    email = models.EmailField(blank=True, help_text="entity's current official email address") 
+    URL_field = models.URLField(blank=True, help_text="OpenStreetMap (www.openstreetmap.org) link to address") 
+    file_field = models.FileField(upload_to='{{ app_name }}/', blank=True, null=True, help_text="rel. path/filename")
+    image_field = models.ImageField(upload_to='{{ app_name }}/images/', blank=True, default="image.svg", help_text="location room map rel. path/filename to image")
+    
+    # TimeField¶
+    date_field = models.DateField(default=datetime.date.today, help_text="start date at this affiliation, default: date of today")
+    duration_field = models.DurationField(help_text="start date at this affiliation, default: date of today")
+    date_field_def = models.DateField(default=datetime.date(9999,9,9), help_text="end date at this affiliation, default: 9.9.9999")
+    datetime_field = models.DateTimeField(default=datetime.datatime.now(), help_text=" default: date time of now")
+    # PostgreSQL fields
+    
+    # ArrayField
+    # HStoreField
+    JSON_field =  models.JSONField(blank=True, null=True, help_text="generic binary field") # postgresql only !!
+    # Range
+    
+    # custom save routine
+    def save(self, *args, **kwargs): #def save(self, force_insert=None, using=None): #force_insert=force_insert, using=using
+        """ """
+        # do some custom saves here ...
+        super().save(*args, **kwargs)
+        
+    def __str__(self):
+        return self.??? or u''
+        
+    def __repr__(self):
+        return self.??? or u''    
+
+    class Meta:
+        verbose_name = 'ForumContribution'
+        verbose_name_plural = 'ForumContributions'
+        #db_table = "lara_metainfo_item_class"
