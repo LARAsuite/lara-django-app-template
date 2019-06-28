@@ -2,6 +2,11 @@
 lara-django-app-template CHANGELOG
 ===================================
 
+v0.0.13
+_______
+
+* advanced models.py and admin.py (all database fields)
+
 v0.0.12
 _______
 
